@@ -118,4 +118,28 @@ describe('<ShowProjectLinks />', () => {
       screen.queryByRole('link', { name: 'academic honesty policy' })
     ).not.toBeInTheDocument();
   });
+  test('renders table header with 1 colspan on legacy certification', () => {
+    renderWithI18n(
+      <ShowProjectLinks
+        certSlug={Certification.LegacyFullStack}
+        name='Full Stack User'
+        openModal={vi.fn()}
+        user={user}
+      />
+    );
+
+    expect(screen.getByRole('columnheader')).toHaveAttribute('colspan', '1');
+  });
+  test('renders table header with 2 colspan on project certificacion', () => {
+    renderWithI18n(
+      <ShowProjectLinks
+        certSlug={Certification.RespWebDesignV9}
+        name='Full Stack User'
+        openModal={vi.fn()}
+        user={user}
+      />
+    );
+
+    expect(screen.getByRole('columnheader')).toHaveAttribute('colspan', '2');
+  });
 });

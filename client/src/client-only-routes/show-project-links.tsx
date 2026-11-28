@@ -135,7 +135,6 @@ export const ShowProjectLinks = (props: ShowProjectLinksProps): JSX.Element => {
         </>
       );
     }
-
     const projects = certsToProjects[certSlug];
     return (
       <>
@@ -181,7 +180,6 @@ export const ShowProjectLinks = (props: ShowProjectLinksProps): JSX.Element => {
           ) ?? null
       }
     : null;
-
   return (
     <div data-testid='project-links'>
       {t(getCertHeading(certSlug), { user: name })}
@@ -189,8 +187,8 @@ export const ShowProjectLinks = (props: ShowProjectLinksProps): JSX.Element => {
       <Table striped>
         <thead>
           <tr>
-            <th>
-              <span className='sr-only'>{t('settings.headings.certs')}</span>
+            <th colSpan={certSlug === Certification.LegacyFullStack ? 1 : 2}>
+              {t('settings.headings.certs')}
             </th>
           </tr>
         </thead>

@@ -238,11 +238,26 @@
   right: 0px;
 }
 
+/* Set a temporary class to make sure it goes to 100% of its container */
+div[data-testid='project-links'] table {
+  display: revert;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* OPTIONAL: If table only has 1 column, set max width 500px. */
+div[data-testid='project-links']
+  table:has(tbody > tr:first-child > :only-child) {
+  max-width: 550px;
+}
+
 @media screen and (max-width: 992px) {
   .certification-namespace header {
     height: 100px;
   }
-
+  div[data-testid='project-links'] table {
+    background: aqua;
+  }
   .certification-namespace .logo {
     margin-inline-start: 0;
     padding: 20px;
